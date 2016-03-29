@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Edit book</title>
+</head>
+<body>
+<div class="modal-content">
+    <div class="modal-header">
+        <h3 class="modal-title">Edit book!</h3>
+    </div>
+    <div class="modal-body">
+      <form name="data.form">
+        <div class="form-group" data-ng-class="{'has-error bg-danger': data.form.title.$invalid && data.form.title.$dirty}">
+          <input type="text" name="title" data-ng-model="data.selectedBook.title" class="form-control" data-ng-required="true" placeholder="title">
+        </div>
+        <div class="form-group" data-ng-class="{'has-error bg-danger': data.form.author.$invalid && data.form.author.$dirty}">
+          <input type="text" name="author" data-ng-model="data.selectedBook.author" class="form-control"  data-ng-required="true" placeholder="author">
+        </div>
+        <div class="form-group" data-ng-class="{'has-error bg-danger': data.form.genre.$invalid}">
+          <input type="text" name="genre" data-ng-model="data.selectedBook.genre"  class="form-control"  placeholder="genre">
+        </div>
+        <div class="form-group" data-ng-class="{'has-error bg-danger': data.form.year.$invalid}">
+          <input type="number" data-ng-min="1800" data-ng-max="getNextYear()" name="year" data-ng-model="data.selectedBook.year"  class="form-control"  placeholder="year">
+        </div>
+        <span data-ng-bind="data.data.selectedBook"></span>
+      </form>
+    </div>
+    <div class="modal-footer ">
+        <button type="button" class="btn btn-success" data-ng-click="save()" data-ng-disabled="data.form.$invalid">Save</button>
+        <button type="button" class="btn btn-danger" data-ng-click="cancel()">Cancel</button>
+    </div>
+</div>
+</body>
+</html>

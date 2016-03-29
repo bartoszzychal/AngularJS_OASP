@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+<section>
+    <table class="table table-hover">
+        <thead>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Year</th>
+        </thead>
+        <tbody>
+            <tr
+                data-ng-repeat="book in data.books"
+                data-ng-click="selectRow($index)"
+                data-ng-class="{'active': selectedRowIndex === $index}" >
+                <td>{{book.title}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.genre}}</td>
+                <td>{{book.year}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button data-ng-hide="selectedRowIndex === undefined"  data-ng-click="edit()" class="btn btn-warning">Edit book</button>
+    <button data-ng-click="add()" class="btn btn-success">Add new book</button>
+</section>
+
+</body>
+</html>
