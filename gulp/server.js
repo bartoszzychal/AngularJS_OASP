@@ -20,7 +20,7 @@ function browserSyncInit(baseDir, files, browser) {
             }
         },
         browser: browser,
-        ghostMode: false
+        ghostMode: true
     });
 }
 
